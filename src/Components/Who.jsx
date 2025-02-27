@@ -6,7 +6,7 @@ height: 100vh;
 scroll-snap-align: center;
 display: flex;
 justify-content: center;
-
+padding-top: 80px;
 `;
 
 const Container = styled.div`
@@ -93,22 +93,28 @@ animation: animate 2s infinite ease alternate;
 
 
 const Who = () => {
+  const scrollToWorks = () => {
+    const worksSection = document.getElementById('works');
+    if (worksSection) {
+      worksSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <Section>
+    <Section id="who">
       <Container>
         <Left>
           {/* 3d model */}
           <Img src="./img/doit.png" />
         </Left>
         <Right>
-
           <Title>DOOOOOIIIIT.</Title>
           <WhatWeDo>
             <Line src="./img/line.png" />
             <Subtitle>What we do</Subtitle>
           </WhatWeDo>
           <Description>we enjoy a lot of stuff</Description>
-          <Button>Learn more</Button>
+          <Button onClick={scrollToWorks}>Learn more</Button>
         </Right>
       </Container>
     </Section>

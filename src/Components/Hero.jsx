@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Navbar from './Navbar'
 
 const Section = styled.div`
 height: 100vh;
@@ -8,8 +7,8 @@ scroll-snap-align: center;
 display: flex;
 flex-direction: column;
 align-items: center;
-justify-content: space-between;
-
+justify-content: center;
+padding-top: 80px;
 `;
 
 const Container = styled.div`
@@ -18,7 +17,6 @@ scroll-snap-align: center;
 width: 1400px;
 display: flex;
 justify-content: space-between;
-
 `;
 
 const Left = styled.div`
@@ -95,9 +93,15 @@ animation: animate 2s infinite ease alternate;
 
 
 const Hero = () => {
+    const scrollToWho = () => {
+        const whoSection = document.getElementById('who');
+        if (whoSection) {
+            whoSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
-        <Section>
-            <Navbar />
+        <Section id="hero">
             <Container>
                 <Left>
                     <Title>JUUUUUST.</Title>
@@ -106,7 +110,7 @@ const Hero = () => {
                         <Subtitle>What we do</Subtitle>
                     </WhatWeDo>
                     <Description>we enjoy a lot of stuff</Description>
-                    <Button>Learn more</Button>
+                    <Button onClick={scrollToWho}>Learn more</Button>
                 </Left>
                 <Right>
                     {/* 3d model */}
